@@ -106,8 +106,8 @@ a{color:inherit}
    ===================================================================== */
 .hero{height:max(100svh,760px);background:var(--linen)}
 .h-img{right:4vw;top:13vh;width:56vw;height:70vh;aspect-ratio:auto;z-index:1}
-.h-logo{left:3vw;top:17vh;width:50vw;color:var(--wine);z-index:3}
-.h-sup{left:33vw;top:calc(83vh - 9vw);width:12vw;--ar:1/1;z-index:4;box-shadow:0 0 0 10px var(--linen)}
+.h-logo{left:3vw;top:17vh;width:50vw;color:var(--umber);z-index:3}
+.h-logo::after{content:"";position:absolute;inset:0;background:var(--wine);-webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat;clip-path:inset(61% 0 0)}
 .h-text{left:4vw;bottom:9vh;width:28vw;z-index:3}
 .h-text .micro{color:#6E653B;margin-bottom:22px}
 .h-text .t-a{display:block;font-size:clamp(3rem,5.6vw,6rem)}
@@ -293,7 +293,6 @@ a{color:inherit}
   .h-logo{width:84vw;margin-left:4vw;order:1}
   .h-img{order:2}.h-cap{order:3}.h-text{order:4}
   .h-img{width:88vw;height:auto;aspect-ratio:4/5;margin:-9vw 0 0 auto}
-  .h-sup{display:none}
   .h-cap{align-self:flex-end;margin:10px 5vw 0 0}
   .h-text{width:auto;margin:40px 6vw 0 6vw}
   .h-text .t-a{font-size:15vw}.h-text .t-b{font-size:10vw}
@@ -385,7 +384,6 @@ a{color:inherit}
 <section class="hero stage" aria-labelledby="hero-t">
   <figure class="a ph h-img par rv" data-photo="hero"></figure>
   <span class="a h-logo logo" role="img" aria-label="lYvinG Interiors" data-speed="-0.25"></span>
-  <figure class="a ph h-sup rv" data-photo="heroDetail" data-speed="0.4"></figure>
   <div class="a h-text">
     <p class="micro" data-from="left">Interior design / Nederland</p>
     <h1 id="hero-t">
@@ -545,7 +543,6 @@ const RAW = {
   "apartmentDetail": "img/appartament 2.jpg",
   "cabinet": "img/cabinet.webp",
   "chairs": "img/chairs.webp",
-  "chandelier": "img/chandelier.webp",
   "curtain": "img/curtain.webp",
   "dining": "img/dining.webp",
   "living": "img/living.webp",
@@ -563,7 +560,6 @@ const RAW = {
 };
 const PHOTOS = {
   hero:      { src:RAW.living,     alt:"Woonkamer met mosterdgele bank en eethoek met roze wandkasten" },
-  heroDetail:{ src:RAW.chandelier, alt:"Detail van de gouden hanglamp" },
   p1:        { src:RAW.room,       alt:"Woonkamer en eethoek in warme kleuren" },
   p2:        { src:RAW.apartment,  alt:"Kleurrijk appartement met een warme zithoek" },
   p2Detail:  { src:RAW.apartmentDetail, alt:"Detail uit het kleurrijke appartement" },
@@ -603,9 +599,7 @@ document.querySelectorAll('[data-photo]').forEach(fig=>{
     .to('.h-img',{clipPath:'inset(0 0 0% 0)',duration:1.6,ease:'expo.inOut'})
     .to('.h-img img',{scale:1,duration:2.1,clearProps:'transform'},0)
     .fromTo('.h-logo',{autoAlpha:0,x:mobile?0:-40},{autoAlpha:1,x:0,duration:1.4},.5)
-    .to(hero.querySelectorAll('.ln>span'),{y:0,duration:1.2,stagger:.14},.8)
-    .to('.h-sup',{clipPath:'inset(0 0 0% 0)',duration:1.2,ease:'expo.out'},1.1)
-    .to('.h-sup img',{scale:1,duration:1.6,clearProps:'transform'},1.1);
+    .to(hero.querySelectorAll('.ln>span'),{y:0,duration:1.2,stagger:.14},.8);
 
   // Masked image reveals, staggered when several enter together
   ScrollTrigger.batch('.rv',{start:'top 88%',once:true,onEnter:els=>{
