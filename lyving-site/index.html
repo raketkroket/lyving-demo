@@ -178,11 +178,13 @@ a{color:inherit}
 .p2-text .pj-name .it{font-family:var(--f-ital);font-style:italic;font-weight:300;color:#2A1A14;margin-left:3vw}
 .p2-text .meta-stack{margin-bottom:24px}
 .p2-text .lnk{margin-top:30px}
-.p2 .tall{grid-column:7/12;--ar:3/4;position:relative;z-index:2}
+.p2-photo-main{grid-column:7/12;position:relative;z-index:2}
+.p2 .tall{--ar:3/4}
 .p2-cap{grid-column:7/12;color:rgba(42,26,20,.72)}
-.p2-detail{grid-column:2/6;--ar:4/5;margin-top:7vh;position:relative;z-index:2}
-.p2 .tall.tape::after{left:72%;top:0;transform:translateX(-50%) rotate(4deg)}
-.p2-detail.tape::after{left:28%;top:0;transform:translateX(-50%) rotate(-5deg)}
+.p2-photo-detail{grid-column:2/6;margin-top:7vh;position:relative;z-index:2}
+.p2-detail{--ar:4/5}
+.p2-photo-main.tape::after{left:72%;transform:translateX(-50%) rotate(4deg)}
+.p2-photo-detail.tape::after{left:28%;transform:translateX(-50%) rotate(-5deg)}
 .p2-more{grid-column:1/13;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(42,26,20,.25);margin-top:14vh;padding-top:18px;position:relative;z-index:2}
 
 /* =====================================================================
@@ -279,7 +281,7 @@ a{color:inherit}
 @media (max-width:1100px) and (min-width:761px){
   .h-text{width:30vw}
   .sp-cols{columns:1}
-  .p2-text{grid-column:1/7}.p2 .tall,.p2-cap{grid-column:7/13}
+  .p2-text{grid-column:1/7}.p2-photo-main,.p2-cap{grid-column:7/13}
 }
 
 /* =====================================================================
@@ -334,9 +336,9 @@ a{color:inherit}
   .mo-quote{display:block;margin:10vh 0 0 12vw}
 
   .p2{display:flex;flex-direction:column;align-items:stretch;padding:14vh 5vw}
-  .p2 .tall{width:78vw;margin-left:auto;order:2;margin-top:34px}
+  .p2-photo-main{width:78vw;margin-left:auto;order:2;margin-top:34px}
   .p2-cap{order:3;margin-left:22vw}
-  .p2-detail{width:62vw;margin-top:8vh;order:4}
+  .p2-photo-detail{width:62vw;margin-top:8vh;order:4}
   .p2-text{order:1}
   .p2-text .pj-name{font-size:12vw}
   .p2-more{order:5;margin-top:8vh}
@@ -465,9 +467,9 @@ a{color:inherit}
     <p class="pj-copy">Een kleurrijke wand geeft de bank alle ruimte om te stralen. Marmer, velours en één witte vaas maken het af.</p>
     <a class="lnk" href="#projecten">Bekijk project <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor"/></svg></a>
   </div>
-  <figure class="ph tall par rv tape" data-photo="p2"></figure>
+  <div class="p2-photo-main tape"><figure class="ph tall par rv" data-photo="p2"></figure></div>
   <p class="p2-cap cap">Zithoek met kunst, Utrecht</p>
-  <figure class="ph p2-detail rv lift tape" data-photo="p2Detail"></figure>
+  <div class="p2-photo-detail tape"><figure class="ph p2-detail rv lift" data-photo="p2Detail"></figure></div>
   <div class="p2-more">
     <span class="micro">Meer projecten</span>
     <a class="lnk" href="#projecten">Alle projecten bekijken <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor"/></svg></a>
