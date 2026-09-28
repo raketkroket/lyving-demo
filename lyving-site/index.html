@@ -176,6 +176,7 @@ a{color:inherit}
 .p2-text .lnk{margin-top:30px}
 .p2 .tall{grid-column:7/12;--ar:3/4;position:relative;z-index:2}
 .p2-cap{grid-column:7/12;color:rgba(42,26,20,.72)}
+.p2-detail{grid-column:2/6;--ar:4/5;margin-top:7vh;position:relative;z-index:2}
 .p2-more{grid-column:1/13;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(42,26,20,.25);margin-top:14vh;padding-top:18px;position:relative;z-index:2}
 
 /* =====================================================================
@@ -318,9 +319,10 @@ a{color:inherit}
   .p2{display:flex;flex-direction:column;align-items:stretch;padding:14vh 5vw}
   .p2 .tall{width:78vw;margin-left:auto;order:2;margin-top:34px}
   .p2-cap{order:3;margin-left:22vw}
+  .p2-detail{width:62vw;margin-top:8vh;order:4}
   .p2-text{order:1}
   .p2-text .pj-name{font-size:12vw}
-  .p2-more{order:4;margin-top:8vh}
+  .p2-more{order:5;margin-top:8vh}
   .p2-bg{font-size:70vw}
 
   .mood{height:215vw;min-height:0}
@@ -448,6 +450,7 @@ a{color:inherit}
   </div>
   <figure class="ph tall par rv" data-photo="p2"></figure>
   <p class="p2-cap cap">Zithoek met kunst, Utrecht</p>
+  <figure class="ph p2-detail rv lift" data-photo="p2Detail"></figure>
   <div class="p2-more">
     <span class="micro">Meer projecten</span>
     <a class="lnk" href="#projecten">Alle projecten bekijken <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor"/></svg></a>
@@ -538,6 +541,8 @@ a{color:inherit}
    ===================================================================== */
 const RAW = {
   "artwall": "img/artwall.webp",
+  "apartment": "img/appartament.jpg",
+  "apartmentDetail": "img/appartament 2.jpg",
   "cabinet": "img/cabinet.webp",
   "chairs": "img/chairs.webp",
   "chandelier": "img/chandelier.webp",
@@ -560,7 +565,8 @@ const PHOTOS = {
   hero:      { src:RAW.living,     alt:"Woonkamer met mosterdgele bank en eethoek met roze wandkasten" },
   heroDetail:{ src:RAW.chandelier, alt:"Detail van de gouden hanglamp" },
   p1:        { src:RAW.room,       alt:"Woonkamer en eethoek in warme kleuren" },
-  p2:        { src:RAW.tall,       alt:"Kunst boven een mosterdgele bank met marmeren bijzettafel" },
+  p2:        { src:RAW.apartment,  alt:"Kleurrijk appartement met een warme zithoek" },
+  p2Detail:  { src:RAW.apartmentDetail, alt:"Detail uit het kleurrijke appartement" },
   m1:        { src:RAW.room,       alt:"Overzicht van de woonkamer" },
   m2:        { src:RAW.chairs,     alt:"Eettafel met tijgerprint stoelen" },
   m3:        { src:RAW.curtain,    alt:"Gordijn met luipaardprint" },
