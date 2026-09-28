@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>lYvinG Interiors | Interieurontwerp met kleur, karakter &amp; een persoonlijk verhaal</title>
+<meta name="description" content="lYvinG Interiors ontwerpt warme interieurs die anders zijn dan standaard. Ruimtes met sfeer, karakter en persoonlijkheid, waar jij je thuis voelt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js')</script>
+<style>
+
+/* =====================================================================
+   TOKENS
+   ===================================================================== */
+:root{
+  --linen:#F1E7D9; --paper:#F8F2E8; --blush:#E9D6C5; --olive:#847949; --taupe:#A68B73;
+  --wine:#491211; --wine-2:#7A2632; --umber:#2A1A14; --mustard:#B6963C; --rose:#C98270;
+  --ink-60:rgba(42,26,20,.62); --rule:rgba(42,26,20,.24);
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-ital:"Cormorant Garamond","Garamond",Georgia,serif;
+  --f-sans:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.22,.61,.24,1);
+  --logo:url("img/logo.png");
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--linen:#EEE3D3}}
+:root[data-theme="dark"]{--linen:#EEE3D3}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%;overflow-x:clip}
+main{overflow-x:clip}
+body{background:var(--linen);color:var(--umber);font:300 16px/1.6 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:1.5px solid var(--wine);outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- three voices ---------- */
+.dsp{font-family:var(--f-display);font-weight:400;letter-spacing:-.035em;line-height:.86}
+.itl{font-family:var(--f-ital);font-style:italic;font-weight:300;letter-spacing:-.01em;line-height:.95}
+.sns{font-family:var(--f-sans);font-weight:500;text-transform:uppercase;letter-spacing:.14em}
+.micro{font:400 10.5px/1.4 var(--f-sans);letter-spacing:.16em;text-transform:uppercase}
+.cap{font:400 11.5px/1.45 var(--f-sans);letter-spacing:.03em;color:var(--ink-60);margin-top:10px}
+.folio{font:400 10.5px/1 var(--f-sans);letter-spacing:.16em}
+
+/* ---------- logo (real mark, recoloured via mask) ---------- */
+.logo{display:block;aspect-ratio:1100/452;background:currentColor;
+  -webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
+
+/* ---------- photo ---------- */
+.ph{position:relative;overflow:hidden;aspect-ratio:var(--ar,4/5);background:#C9A38C;margin:0}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--op,50% 50%);transition:transform 1.3s var(--ease)}
+.ph:hover img{transform:scale(1.03)}
+.par img{top:-7%;height:114%}
+.js .rv{clip-path:inset(0 0 100% 0)}
+.js .rv img{transform:scale(1.12)}
+.tape::after{content:"";position:absolute;left:50%;top:-10px;width:62px;height:20px;transform:translateX(-50%) rotate(-3deg);
+  background:rgba(247,241,231,.62);box-shadow:0 1px 2px rgba(42,26,20,.12);z-index:5}
+.lift{box-shadow:0 22px 40px -26px rgba(42,26,20,.6)}
+
+/* ---------- link ---------- */
+.lnk{font:400 13px/1 var(--f-sans);letter-spacing:.06em;text-decoration:none;display:inline-flex;gap:.7em;align-items:center;padding-bottom:6px;
+  background:linear-gradient(currentColor,currentColor) left bottom/100% 1px no-repeat;transition:background-size .6s var(--ease)}
+.lnk:hover{background-size:28% 1px}
+.lnk svg{width:11px;height:11px;transition:transform .5s var(--ease)}
+.lnk:hover svg{transform:translate(2px,-2px)}
+
+/* ---------- stage: art-directed absolute layout ---------- */
+.stage{position:relative}
+.stage>.a{position:absolute}
+
+
+/* line-mask reveals */
+.ln{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.ln>span{display:inline-block;will-change:transform}
+.js .ln>span{transform:translateY(108%)}
+
+/* =====================================================================
+   NAV: plain and always clear
+   ===================================================================== */
+.nav{position:fixed;inset:0 0 auto;z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  --nav-bg:#54151C;--nav-ink:#F3E8DA;
+  height:calc(80px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 4vw 0;
+  background:var(--nav-bg);color:var(--nav-ink);border-bottom:3px solid var(--olive);
+  transition:transform .7s var(--ease),box-shadow .5s}
+.nav.solid{box-shadow:0 10px 30px -18px rgba(42,26,20,.55)}
+.nav.hide{transform:translateY(-110%)}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand .logo{width:108px;color:var(--nav-ink)}
+.nav ul{list-style:none;display:flex;gap:clamp(18px,2.8vw,42px)}
+.nav ul a{font-size:13px;letter-spacing:.06em;text-decoration:none;position:relative;color:var(--nav-ink)}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{justify-self:end}
+.btn{font:400 13px/1 var(--f-sans);letter-spacing:.05em;text-decoration:none;display:inline-flex;align-items:center;gap:.7em;
+  padding:13px 20px;border:1px solid currentColor;transition:background-color .4s,color .4s}
+.btn:hover{background:var(--wine);border-color:var(--wine);color:var(--paper)}
+.nav .btn{color:var(--nav-ink);border-color:var(--nav-ink);background:transparent;transition:background-color .45s var(--ease),color .45s var(--ease)}
+.nav .btn:hover{background:var(--nav-ink);color:var(--nav-bg);border-color:var(--nav-ink)}
+.menu{display:none;justify-self:end;background:none;border:0;font:400 13px var(--f-sans);letter-spacing:.05em;color:inherit;cursor:pointer;padding:6px 0}
+
+/* =====================================================================
+   01 HERO (cream): one confident photograph, logo leaning into it
+   ===================================================================== */
+.hero{height:max(100svh,760px);background:var(--linen)}
+.h-img{right:4vw;top:13vh;width:56vw;height:70vh;aspect-ratio:auto;z-index:1}
+.h-logo{left:3vw;top:17vh;width:50vw;color:var(--wine);z-index:3}
+.h-sup{left:33vw;top:calc(83vh - 9vw);width:12vw;--ar:1/1;z-index:4;box-shadow:0 0 0 10px var(--linen)}
+.h-text{left:4vw;bottom:9vh;width:28vw;z-index:3}
+.h-text .micro{color:#6E653B;margin-bottom:22px}
+.h-text .t-a{display:block;font-size:clamp(3rem,5.6vw,6rem)}
+.h-text .t-b{display:block;white-space:nowrap;font-size:clamp(2.2rem,3.8vw,4rem);color:var(--wine);margin:.02em 0 0 2.2vw}
+.h-text .btn{margin-top:30px}
+.h-cap{right:4vw;top:calc(83vh + 12px)}
+
+/* =====================================================================
+   02 STATEMENT (bordeaux): typography only
+   ===================================================================== */
+.statement{background:var(--wine);color:var(--paper);padding:22vh 4vw 20vh;display:grid;grid-template-columns:repeat(12,1fr)}
+.statement .micro{grid-column:1/13;color:#B5AD80;margin-bottom:8vh}
+.st-lines{grid-column:2/12}
+.st-1{font-size:clamp(1.5rem,2.6vw,2.6rem);color:#E4C3B0;margin-left:.3vw}
+.st-2{font-size:clamp(4.2rem,11.5vw,12.5rem);text-transform:uppercase;letter-spacing:-.045em;margin:1vw 0}
+.st-3{font-size:clamp(2.6rem,6.4vw,7rem);margin-left:14vw;color:#B5AD80}
+.st-4{font-size:clamp(3rem,7.6vw,8.2rem);margin-left:4vw}
+.st-body{grid-column:8/12;margin-top:10vh;font-size:15px;max-width:38ch;color:rgba(247,241,231,.82)}
+.st-body p+p{margin-top:1em}
+
+/* =====================================================================
+   PROJECT HEAD shared
+   ===================================================================== */
+.pj-no{font:400 clamp(1.4rem,2.2vw,2.2rem)/1 var(--f-display);color:var(--wine)}
+.pj-name{font-size:clamp(2.6rem,5.4vw,5.8rem);line-height:.95}
+.meta-stack{font:400 11px/1.9 var(--f-sans);letter-spacing:.16em;text-transform:uppercase}
+.meta-stack b{font-weight:500;color:#6E653B}
+.p2 .meta-stack b{color:var(--paper)}
+.pj-copy{font-size:15px;max-width:40ch}
+
+/* =====================================================================
+   03 PROJECT 01 (cream): huge photograph, title overlaps its top edge
+   ===================================================================== */
+.p1{background:var(--linen);padding:18vh 4vw 16vh}
+.p1-head{display:flex;align-items:flex-start;gap:2.4vw;position:relative;z-index:2;margin:0 0 -2.6vw 5vw}
+.p1-head .pj-name{color:var(--umber)}
+.p1 .big{width:100%;--ar:16/8.2}
+.p1-foot{display:grid;grid-template-columns:repeat(12,1fr);margin-top:34px;align-items:start}
+.p1-foot .meta-stack{grid-column:1/4}
+.p1-foot .pj-copy{grid-column:5/9}
+.p1-foot .lnk{grid-column:11/13;justify-self:end}
+
+/* =====================================================================
+   04 EDITORIAL MOMENT (chocolate): "thuis"
+   ===================================================================== */
+.moment{background:var(--umber);color:#E6CFB5;padding:24vh 4vw 22vh;position:relative;overflow:hidden}
+.mo-1{font-size:clamp(.8rem,1.2vw,1.1rem);color:#C9A98C;margin-left:8vw}
+.mo-2{font-size:clamp(2.4rem,5.4vw,5.8rem);margin:3vh 0 0 8vw}
+.mo-3{font-size:clamp(7rem,25vw,27rem);line-height:.8;color:#F3E3CF;margin:0 0 0 15vw;letter-spacing:-.05em}
+.mo-4{font-size:clamp(2.4rem,5.4vw,5.8rem);margin:-1vw 0 0 52vw;color:#CFA995}
+.mo-quote{display:grid;grid-template-columns:repeat(12,1fr);margin-top:14vh}
+.mo-quote blockquote{grid-column:7/12;font-size:clamp(1.3rem,1.9vw,1.9rem);line-height:1.25}
+.mo-quote cite{display:block;margin-top:16px;font:normal 400 10.5px/1.4 var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:#A98C74}
+
+/* =====================================================================
+   05 PROJECT 02 (olive): text left, tall photograph right
+   ===================================================================== */
+.p2{background:var(--olive);color:var(--umber);padding:18vh 4vw 18vh;display:grid;grid-template-columns:repeat(12,1fr);column-gap:1.6vw;align-items:center;position:relative;overflow:hidden}
+.p2-bg{position:absolute;left:-2vw;top:4vh;font:italic 300 clamp(12rem,38vw,42rem)/.8 var(--f-ital);color:rgba(241,231,217,.13);pointer-events:none;letter-spacing:-.05em}
+.p2-text{grid-column:2/6;position:relative;z-index:2}
+.p2-text .micro{color:rgba(248,242,232,.8)}
+.p2-text .pj-name{margin:18px 0 26px;color:var(--paper)}
+.p2-text .pj-name span{display:block}
+.p2-text .pj-name .it{font-family:var(--f-ital);font-style:italic;font-weight:300;color:#2A1A14;margin-left:3vw}
+.p2-text .meta-stack{margin-bottom:24px}
+.p2-text .lnk{margin-top:30px}
+.p2 .tall{grid-column:7/12;--ar:3/4;position:relative;z-index:2}
+.p2-cap{grid-column:7/12;color:rgba(42,26,20,.72)}
+.p2-more{grid-column:1/13;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(42,26,20,.25);margin-top:14vh;padding-top:18px;position:relative;z-index:2}
+
+/* =====================================================================
+   06 MOODBOARD, 07 TEAM, 08 WERKWIJZE, 09 CONTACT (kept from v2)
+   ===================================================================== */
+/* =====================================================================
+   06 MOODBOARD: the only collage
+   ===================================================================== */
+.mood{background:var(--blush);height:max(900px,72vw);overflow:hidden}
+.mood .m1{left:4%;top:9%;width:40%;--ar:1919/865}
+.mood .m2{left:47%;top:5%;width:23%;--ar:600/395;transform:rotate(-2deg);z-index:4}
+.mood .m3{left:78%;top:9%;width:10%;--ar:120/260;z-index:4}
+.mood .m5{left:57%;top:47%;width:30%;--ar:270/140;transform:rotate(1.5deg);z-index:4}
+.mood .t1{left:5%;top:32%;font-size:clamp(4rem,10.5vw,11.5rem);z-index:2}
+.mood .t2{left:30%;top:45%;font-size:clamp(3rem,8vw,8.6rem);z-index:2}
+.mood .t3{left:9%;top:61%;font-size:clamp(5rem,14vw,15rem);color:var(--wine);z-index:5}
+.mood .circle{left:85.5%;top:33%;width:12%;color:var(--wine);z-index:6}
+.mood .n1{left:85%;top:43%;width:13%;font-size:clamp(1rem,1.3vw,1.35rem);color:var(--wine);transform:rotate(-4deg);z-index:6}
+.mood .sw{left:4%;top:85%;display:flex;gap:12px;z-index:6}
+.mood .sw div{width:clamp(52px,5vw,78px)}
+.mood .sw span{display:block;aspect-ratio:1;margin-bottom:7px}
+.mood .sw small{display:block;font-size:10.5px;line-height:1.3;letter-spacing:.03em}
+.mood .fol{right:4%;bottom:4%;color:var(--ink-60)}
+.mood .lab{left:4%;top:3.5%;color:var(--ink-60)}
+
+/* =====================================================================
+   07 TEAM: a printed two-page spread
+   ===================================================================== */
+.spread{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);position:relative}
+.spread::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--rule);z-index:1}
+.sp-left{padding:16vh 5vw 12vh 4vw;display:flex;flex-direction:column}
+.sp-left .micro{color:var(--ink-60);display:flex;justify-content:space-between}
+.sp-t1{font-size:clamp(3.4rem,8vw,8.6rem);margin-top:10vh}
+.sp-t2{font-size:clamp(2.4rem,5vw,5.4rem);margin-left:8vw;color:var(--wine)}
+.sp-t3{font-size:clamp(.8rem,1.3vw,1.25rem);margin:2vw 0 0 2px}
+.sp-cols{columns:2;column-gap:2.4vw;font-size:14px;line-height:1.65;margin-top:8vh;max-width:640px}
+.sp-cols p{margin-bottom:1em;break-inside:avoid-column}
+.sp-cols p:first-child::first-letter{font-family:var(--f-display);float:left;font-size:4.2em;line-height:.8;padding:.06em .08em 0 0;color:#6E653B}
+.sp-sign{font-size:clamp(1.6rem,2.2vw,2.2rem);margin-top:auto;padding-top:6vh}
+.sp-right{position:relative}
+.sp-right .ph{height:100%;min-height:100%;aspect-ratio:auto}
+.sp-right .ph img{object-position:50% 30%}
+.sp-right .cap{position:absolute;right:2vw;bottom:2vw;text-align:right;text-shadow:0 1px 8px rgba(0,0,0,.55);color:var(--paper);z-index:2;max-width:26ch}
+.sp-swatch{position:absolute;left:calc(50% - 9vw);bottom:10vh;width:14vw;--ar:270/140;z-index:3;transform:rotate(-2deg)}
+.sp-pg{position:absolute;bottom:22px;font:400 10.5px var(--f-sans);letter-spacing:.16em;color:var(--ink-60);z-index:2}
+.sp-pg.l{left:4vw}.sp-pg.r{right:4vw;color:var(--paper)}
+
+/* =====================================================================
+   08 WERKWIJZE: horizontal, staggered, on bordeaux
+   ===================================================================== */
+.proc{background:var(--wine);color:var(--paper);padding:16vh 4vw 18vh}
+.pc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:4vw;margin-bottom:10vh}
+.pc-head .itl{font-size:clamp(3rem,7vw,7.4rem);color:#F0D9C6}
+.pc-head .lnk{color:var(--paper)}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:2.4vw;border-top:1px solid rgba(247,241,231,.3);position:relative}
+.step{padding-top:26px;position:relative;margin-top:var(--mt,0)}
+.step::after{content:"";position:absolute;left:3px;top:calc(0px - var(--mt,0px));height:var(--mt,0px);width:1px;background:rgba(247,241,231,.3)}
+.step::before{content:"";position:absolute;top:calc(-4px - var(--mt,0px));left:0;width:7px;height:7px;border-radius:50%;background:var(--paper)}
+.step:nth-child(2){--mt:7vw}.step:nth-child(3){--mt:2.5vw}.step:nth-child(4){--mt:9vw}
+.step .no{font:italic 300 clamp(1.8rem,2.6vw,2.6rem)/1 var(--f-ital);color:#E4B9A9}
+.step h3{margin:14px 0 14px;font-weight:400}
+.step:nth-child(1) h3{font:400 clamp(2rem,3.2vw,3.3rem)/1 var(--f-display);letter-spacing:-.03em}
+.step:nth-child(2) h3{font:500 clamp(1.1rem,1.7vw,1.7rem)/1.1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase}
+.step:nth-child(3) h3{font:italic 300 clamp(2.4rem,3.6vw,3.8rem)/1 var(--f-ital)}
+.step:nth-child(4) h3{font:400 clamp(1.8rem,2.8vw,2.9rem)/1 var(--f-display);text-transform:uppercase;letter-spacing:-.02em}
+.step p{font-size:14px;max-width:28ch;color:rgba(247,241,231,.8)}
+
+/* =====================================================================
+   09 CONTACT
+   ===================================================================== */
+.contact{background:var(--umber);color:var(--paper);padding:18vh 4vw 0;position:relative;overflow:hidden}
+.ct-1{font-size:clamp(2.2rem,5vw,5.4rem);color:#B5AD80;margin-left:5vw}
+.ct-2{font-size:clamp(.9rem,1.5vw,1.5rem);margin:1.2vw 0 0 22vw}
+.ct-3{font-size:clamp(4.4rem,14vw,15rem);margin-left:12vw}
+.ct-row{display:flex;flex-wrap:wrap;gap:28px 5vw;align-items:flex-end;margin:9vh 0 0 22vw}
+.ct-mail{font:italic 400 clamp(1.5rem,2.6vw,2.6rem)/1 var(--f-ital);text-decoration:none;border-bottom:1px solid rgba(247,241,231,.35);padding-bottom:6px}
+.ct-row .lnk{color:var(--paper)}
+.ct-logo{width:96vw;margin:14vh 0 0 -1vw;color:rgba(247,241,231,.08)}
+.foot{position:relative;display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;font-size:11.5px;letter-spacing:.04em;color:rgba(247,241,231,.62);border-top:1px solid rgba(247,241,231,.16);padding:20px 0 28px;margin-top:-6vw;background:var(--umber)}
+.foot a{text-decoration:none}.foot a:hover{color:var(--paper)}
+.foot nav{display:flex;gap:22px;flex-wrap:wrap}
+
+
+.ct-btn{color:var(--paper)}
+.ct-btn:hover{background:var(--paper);color:var(--umber);border-color:var(--paper)}
+.proc .step .no{color:#D9A99A}
+
+
+/* =====================================================================
+   TABLET
+   ===================================================================== */
+@media (max-width:1100px) and (min-width:761px){
+  .h-text{width:30vw}
+  .sp-cols{columns:1}
+  .p2-text{grid-column:1/7}.p2 .tall,.p2-cap{grid-column:7/13}
+}
+
+/* =====================================================================
+   MOBILE
+   ===================================================================== */
+@media (max-width:760px){
+  body{font-size:15px}
+  .nav{grid-template-columns:1fr auto}
+  .nav ul,.nav>.btn{display:none}
+  .menu{display:block}
+  .nav{height:calc(66px + env(safe-area-inset-top,0px))}
+  .brand .logo{width:96px}
+  .nav.open ul{display:flex;flex-direction:column;gap:16px;position:absolute;top:100%;left:0;right:0;background:var(--nav-bg);padding:18px 5vw 30px;border-bottom:1px solid rgba(243,232,218,.12)}
+  .nav.open ul a{font:400 30px/1.1 var(--f-display);letter-spacing:-.02em}
+
+  .stage>.a{position:relative;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important}
+
+  .hero{height:auto;min-height:0;padding:calc(env(safe-area-inset-top,0px) + 88px) 0 70px;display:flex;flex-direction:column}
+  .h-logo{width:84vw;margin-left:4vw;order:1}
+  .h-img{order:2}.h-cap{order:3}.h-text{order:4}
+  .h-img{width:88vw;height:auto;aspect-ratio:4/5;margin:-9vw 0 0 auto}
+  .h-sup{display:none}
+  .h-cap{align-self:flex-end;margin:10px 5vw 0 0}
+  .h-text{width:auto;margin:40px 6vw 0 6vw}
+  .h-text .t-a{font-size:15vw}.h-text .t-b{font-size:10vw}
+
+  .statement{display:block;padding:15vh 6vw}
+  .st-2{font-size:15vw}.st-3{font-size:10vw;margin-left:6vw}.st-4{font-size:11.5vw;margin-left:0}
+  .st-body{margin:7vh 0 0 12vw}
+
+  .p1{padding:14vh 5vw 12vh}
+  .p1-head{flex-direction:column;align-items:flex-start;gap:8px;margin:0 0 -5vw 3vw}
+  .p1-head .pj-name{font-size:12vw}
+  .p1 .big{--ar:4/5}
+  .p1 .big img{object-position:88% 50%}
+  .p1-foot{display:flex;flex-direction:column;gap:22px}
+  .p1-foot .lnk{align-self:flex-start}
+
+  .moment{padding:16vh 6vw}
+  .mo-1,.mo-2{margin-left:0}.mo-2{font-size:10vw}
+  .mo-3{font-size:31vw;margin-left:6vw}
+  .mo-4{font-size:10vw;margin:0 0 0 30vw}
+  .mo-quote{display:block;margin:10vh 0 0 12vw}
+
+  .p2{display:flex;flex-direction:column;align-items:stretch;padding:14vh 5vw}
+  .p2 .tall{width:78vw;margin-left:auto;order:2;margin-top:34px}
+  .p2-cap{order:3;margin-left:22vw}
+  .p2-text{order:1}
+  .p2-text .pj-name{font-size:12vw}
+  .p2-more{order:4;margin-top:8vh}
+  .p2-bg{font-size:70vw}
+
+  .mood{height:215vw;min-height:0}
+  .mood .a{position:absolute!important}
+  .mood .lab{left:5%!important;top:2%!important}
+  .mood .m1{left:5%!important;top:6%!important;width:80%}
+  .mood .m2{left:44%!important;top:21%!important;width:50%}
+  .mood .t1{left:5%!important;top:36%!important;font-size:19vw}
+  .mood .t2{left:20%!important;top:45%!important;font-size:15vw}
+  .mood .m3{left:72%!important;top:47%!important;width:19%}
+  .mood .t3{left:5%!important;top:58%!important;font-size:25vw}
+  .mood .m5{left:30%!important;top:72%!important;width:62%}
+  .mood .circle,.mood .n1{display:none!important}
+  .mood .sw{left:5%!important;top:89%!important}
+  .mood .sw div{width:50px}
+  .mood .fol{display:none}
+
+  .spread{grid-template-columns:1fr}
+  .spread::before{display:none}
+  .sp-left{padding:14vh 6vw 8vh}
+  .sp-t1{font-size:17vw;margin-top:6vh}.sp-t2{font-size:11vw}.sp-t3{font-size:12px;margin-top:14px}
+  .sp-cols{columns:1;margin-top:5vh}
+  .sp-right .ph{aspect-ratio:3/4;height:auto;min-height:0}
+  .sp-swatch{left:auto;right:6vw;bottom:auto;top:-12vw;width:36vw}
+  .sp-pg{display:none}
+
+  .pc-head{flex-direction:column;align-items:flex-start;gap:20px}
+  .pc-head .folio{margin-left:0!important}
+  .steps{grid-template-columns:1fr;border-top:0;border-left:1px solid rgba(247,241,231,.3);gap:0;margin-left:2vw}
+  .step{padding:0 0 44px 24px}
+  .step:nth-child(n){--mt:0px}
+  .step:nth-child(2){padding-left:calc(24px + 6vw)}.step:nth-child(3){padding-left:calc(24px + 2vw)}.step:nth-child(4){padding-left:calc(24px + 9vw)}
+  .step::before{top:6px;left:-4px}
+  .step::after{display:none}
+
+  .ct-1{margin-left:0;font-size:10vw}.ct-2{margin-left:14vw;font-size:12px}.ct-3{margin-left:2vw;font-size:21vw}
+  .ct-row{margin:6vh 0 0 6vw;flex-direction:column;align-items:flex-start}
+  .foot{margin-top:-4vw}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.ph:hover img{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Lyving Interiors, naar boven"><span class="logo" aria-hidden="true"></span></a>
+  <ul id="menu">
+    <li><a href="#projecten">Projecten</a></li>
+    <li><a href="#over">Over Ymke</a></li>
+    <li><a href="#werkwijze">Werkwijze</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="btn" href="#contact">Plan een kennismaking</a>
+  <button class="menu" aria-expanded="false" aria-controls="menu">Menu</button>
+</header>
+
+<main id="top">
+
+<!-- 01 HERO / cream ===================================================== -->
+<section class="hero stage" aria-labelledby="hero-t">
+  <figure class="a ph h-img par rv" data-photo="hero"></figure>
+  <span class="a h-logo logo" role="img" aria-label="lYvinG Interiors" data-speed="-0.25"></span>
+  <figure class="a ph h-sup rv" data-photo="heroDetail" data-speed="0.4"></figure>
+  <div class="a h-text">
+    <p class="micro" data-from="left">Interior design / Nederland</p>
+    <h1 id="hero-t">
+      <span class="t-a dsp ln"><span>Interieurs</span></span>
+      <span class="t-b itl ln"><span>met een verhaal.</span></span>
+    </h1>
+    <a class="btn" href="#projecten" data-from="up">Bekijk projecten</a>
+  </div>
+  <p class="a h-cap cap">Woonkamer &amp; eethoek, Eindhoven</p>
+</section>
+
+<!-- 02 STATEMENT / bordeaux ============================================= -->
+<section class="statement" aria-labelledby="st-t">
+  <p class="micro" data-from="left">Over lYvinG</p>
+  <h2 id="st-t" class="st-lines">
+    <span class="st-1 itl ln"><span>Geen interieur uit een catalogus, maar</span></span>
+    <span class="st-2 dsp ln"><span>Warmte,</span></span>
+    <span class="st-3 itl ln"><span>sfeer &amp; karakter</span></span>
+    <span class="st-4 dsp ln"><span>voor jouw thuis.</span></span>
+  </h2>
+  <div class="st-body" data-from="up">
+    <p>We ontwerpen interieurs die anders zijn dan standaard, en laten je graag net een beetje buiten je comfortzone gaan. Juist dat maakt een huis echt van jou.</p>
+    <p>Van een compleet interieuradvies tot even sparren over kleur, meubels of indeling.</p>
+  </div>
+</section>
+
+<!-- 03 PROJECT 01 / cream =============================================== -->
+<article class="p1" id="projecten" aria-labelledby="p1-t">
+  <div class="p1-head">
+    <span class="pj-no">01</span>
+    <h2 id="p1-t" class="pj-name dsp ln"><span>Een huis vol kleur</span></h2>
+  </div>
+  <figure class="ph big par rv" data-photo="p1"></figure>
+  <div class="p1-foot">
+    <p class="meta-stack"><b>Eindhoven</b><br>Residentieel<br>2026</p>
+    <p class="pj-copy">Mosterdgeel velours, roze lakwerk en een vleugje tijgerprint. Een woonkamer en eethoek waar het hele gezin graag samenkomt, met de meubels die er al waren een nieuwe plek.</p>
+    <a class="lnk" href="#projecten">Bekijk project <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor"/></svg></a>
+  </div>
+</article>
+
+<!-- 04 EDITORIAL MOMENT / chocolate ===================================== -->
+<section class="moment" aria-labelledby="mo-t">
+  <h2 id="mo-t" class="sr">Het allerbelangrijkste is dat je je er thuis voelt</h2>
+  <p class="mo-1 sns" aria-hidden="true" data-from="left">Het allerbelangrijkste?</p>
+  <p class="mo-2 itl ln" aria-hidden="true"><span>Dat je je er</span></p>
+  <p class="mo-3 dsp ln" aria-hidden="true"><span>thuis</span></p>
+  <p class="mo-4 itl ln" aria-hidden="true"><span>voelt.</span></p>
+  <div class="mo-quote">
+    <blockquote class="itl" data-from="up">&ldquo;Ik geniet nog elke dag van mijn nieuwe inrichting en krijg regelmatig complimenten van visite.&rdquo;<cite>Klant, Eindhoven</cite></blockquote>
+  </div>
+</section>
+
+<!-- 05 PROJECT 02 / olive =============================================== -->
+<article class="p2" aria-labelledby="p2-t">
+  <span class="p2-bg" aria-hidden="true">02</span>
+  <div class="p2-text">
+    <span class="micro">Project 02</span>
+    <h2 id="p2-t" class="pj-name dsp"><span class="ln"><span>Appartement</span></span><span class="it ln"><span>met lef</span></span></h2>
+    <p class="meta-stack"><b>Utrecht</b><br>Kleuradvies &amp; styling<br>2025</p>
+    <p class="pj-copy">Een kleurrijke wand geeft de bank alle ruimte om te stralen. Marmer, velours en één witte vaas maken het af.</p>
+    <a class="lnk" href="#projecten">Bekijk project <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor"/></svg></a>
+  </div>
+  <figure class="ph tall par rv" data-photo="p2"></figure>
+  <p class="p2-cap cap">Zithoek met kunst, Utrecht</p>
+  <div class="p2-more">
+    <span class="micro">Meer projecten</span>
+    <a class="lnk" href="#projecten">Alle projecten bekijken <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor"/></svg></a>
+  </div>
+</article>
+
+<!-- 06 MOODBOARD: the one collage moment ================================ -->
+<section class="mood stage" aria-labelledby="mood-t">
+  <h2 id="mood-t" class="sr">Een huis dat voelt als jij</h2>
+  <p class="a lab micro">Moodboard / materialen &amp; sfeer</p>
+  <div class="a m1" data-speed="0.15"><figure class="ph rv lift" data-photo="m1"></figure></div>
+  <div class="a m2" data-speed="0.45"><figure class="ph rv lift" data-photo="m2"></figure></div>
+  <div class="a m3 tape" data-speed="0.3"><figure class="ph rv lift" data-photo="m3"></figure></div>
+  <div class="a m5 tape" data-speed="0.3"><figure class="ph rv lift" data-photo="m5"></figure></div>
+  <p class="a t1 dsp" aria-hidden="true" data-from="left">een huis</p>
+  <p class="a t2 itl" aria-hidden="true" data-from="right">dat voelt</p>
+  <p class="a t3 itl" aria-hidden="true" data-from="up">als jij.</p>
+  <svg class="a circle" viewBox="0 0 120 80" aria-hidden="true"><path d="M20 40C18 18 60 8 92 16s24 40-10 50S14 66 22 34" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+  <p class="a n1 itl">luipaard,<br>ja echt.</p>
+  <div class="a sw" aria-label="Kleurpalet">
+    <div><span style="background:#847949"></span><small>Olijf<br>velours</small></div>
+    <div><span style="background:#B6963C"></span><small>Mosterd</small></div>
+    <div><span style="background:#491211"></span><small>Bordeaux</small></div>
+  </div>
+</section>
+
+<!-- 07 TEAM ============================================================= -->
+<section class="spread" id="over" aria-labelledby="team-t">
+  <div class="sp-left">
+    <p class="micro"><span>Meet the team</span><span>Over Ymke</span></p>
+    <h2 id="team-t" class="sr">Samen creëren we jouw unieke thuis</h2>
+    <p class="sp-t1 dsp" aria-hidden="true" data-from="left">Samen</p>
+    <p class="sp-t2 itl" aria-hidden="true" data-from="right">creëren we</p>
+    <p class="sp-t3 sns" aria-hidden="true">jouw unieke thuis.</p>
+    <div class="sp-cols">
+      <p>Wij ontwerpen interieurs die echt bij jou passen. We beginnen altijd bij jou: hoe je leeft, wat je al hebt en waar je blij van wordt.</p>
+      <p>Bestaande meubels krijgen een creatieve plek in het nieuwe plan, zodat alles samenkomt. Van vloer tot muurverf, van verlichting tot accessoires.</p>
+      <p>Ons doel blijft hetzelfde: een plek waar jij je elke dag fijn voelt.</p>
+    </div>
+    <p class="sp-sign itl">Ymke &amp; team</p>
+  </div>
+  <div class="sp-right">
+    <figure class="ph rv" data-photo="team"></figure>
+    <p class="cap">Stalen, boeken en vooral veel overleg in de studio.</p>
+  </div>
+  <figure class="ph sp-swatch rv lift" data-photo="teamSwatch" data-speed="0.4"></figure>
+</section>
+
+<!-- 08 WERKWIJZE / bordeaux ============================================= -->
+<section class="proc" id="werkwijze" aria-labelledby="proc-t">
+  <div class="pc-head">
+    <h2 id="proc-t" class="itl" data-from="left">Zo werkt het</h2>
+    <a class="lnk" href="#werkwijze">Onze pakketten <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" fill="none" stroke="currentColor"/></svg></a>
+  </div>
+  <ol class="steps">
+    <li class="step" data-from="up"><span class="no">01</span><h3>Kennismaking</h3><p>We komen langs, kijken rond en horen hoe je wilt wonen.</p></li>
+    <li class="step" data-from="up"><span class="no">02</span><h3>Concept</h3><p>Een moodboard met kleuren, materialen en sfeer. Hier begint jouw verhaal.</p></li>
+    <li class="step" data-from="up"><span class="no">03</span><h3>Ontwerp</h3><p>Indeling, verlichting, meubels en verf, tot in het kleinste detail.</p></li>
+    <li class="step" data-from="up"><span class="no">04</span><h3>Realisatie</h3><p>We helpen met uitvoering en styling, tot het laatste kussen ligt.</p></li>
+  </ol>
+</section>
+
+<!-- 09 CONTACT / chocolate ============================================== -->
+<section class="contact" id="contact" aria-labelledby="ct-t">
+  <h2 id="ct-t" class="sr">Hulp nodig met jouw interieur?</h2>
+  <p class="ct-1 itl" aria-hidden="true" data-from="left">Hulp nodig met</p>
+  <p class="ct-2 sns" aria-hidden="true">jouw</p>
+  <p class="ct-3 dsp" aria-hidden="true" data-from="right">interieur?</p>
+  <div class="ct-row">
+    <a class="ct-mail" href="mailto:ymke.lyving@gmail.com">ymke.lyving@gmail.com</a>
+    <a class="btn ct-btn" href="mailto:ymke.lyving@gmail.com?subject=Kennismaking">Plan een kennismaking</a>
+  </div>
+  <span class="ct-logo logo" aria-hidden="true" data-speed="-0.2"></span>
+  <footer class="foot">
+    <span>© 2026 lYvinG Interiors &nbsp; KVK 92179487 &nbsp; BTW NL004941771B89</span>
+    <nav aria-label="Juridisch"><a href="#">Algemene voorwaarden</a><a href="#">Privacy policy</a><a href="#">Impressum</a></nav>
+    <nav aria-label="Social"><a href="#">Instagram</a><a href="#">Pinterest</a></nav>
+  </footer>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* =====================================================================
+   PHOTOS: swap `src` for Ymke's real photography (any URL).
+   Slots keep their shape in CSS, so replacing never shifts layout.
+   ===================================================================== */
+const RAW = {
+  "artwall": "img/artwall.webp",
+  "cabinet": "img/cabinet.webp",
+  "chairs": "img/chairs.webp",
+  "chandelier": "img/chandelier.webp",
+  "curtain": "img/curtain.webp",
+  "dining": "img/dining.webp",
+  "living": "img/living.webp",
+  "lounge": "img/lounge.webp",
+  "palmprint": "img/palmprint.webp",
+  "pillows": "img/pillows.webp",
+  "portraitart": "img/portraitart.webp",
+  "room": "img/room.webp",
+  "shelf": "img/shelf.webp",
+  "sidetable": "img/sidetable.webp",
+  "sofa": "img/sofa.webp",
+  "swatch": "img/swatch.webp",
+  "tall": "img/tall.webp",
+  "team": "img/team.webp"
+};
+const PHOTOS = {
+  hero:      { src:RAW.living,     alt:"Woonkamer met mosterdgele bank en eethoek met roze wandkasten" },
+  heroDetail:{ src:RAW.chandelier, alt:"Detail van de gouden hanglamp" },
+  p1:        { src:RAW.room,       alt:"Woonkamer en eethoek in warme kleuren" },
+  p2:        { src:RAW.tall,       alt:"Kunst boven een mosterdgele bank met marmeren bijzettafel" },
+  m1:        { src:RAW.room,       alt:"Overzicht van de woonkamer" },
+  m2:        { src:RAW.chairs,     alt:"Eettafel met tijgerprint stoelen" },
+  m3:        { src:RAW.curtain,    alt:"Gordijn met luipaardprint" },
+  m5:        { src:RAW.swatch,     alt:"Stofstalen in de hand" },
+  team:      { src:RAW.team,       alt:"Ymke en haar collega bekijken stalen in de studio" },
+  teamSwatch:{ src:RAW.shelf,      alt:"Stalenboeken op de plank" },
+};
+document.querySelectorAll('[data-photo]').forEach(fig=>{
+  const p=PHOTOS[fig.dataset.photo]; if(!p) return;
+  const img=new Image(); img.alt=p.alt; img.decoding='async'; img.src=p.src;
+  if(!/^data:/.test(p.src) && !fig.closest('.hero')) img.loading='lazy';
+  fig.appendChild(img);
+});
+
+/* NAV */
+(()=>{const n=document.getElementById('nav'),b=n.querySelector('.menu');let last=0,t=false;
+  addEventListener('scroll',()=>{if(t)return;t=true;requestAnimationFrame(()=>{const y=scrollY;
+    n.classList.toggle('solid',y>40);n.classList.toggle('hide',y>last&&y>500&&!n.classList.contains('open'));last=y;t=false;})},{passive:true});
+  const set=o=>{n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.textContent=o?'Sluiten':'Menu'};
+  b.addEventListener('click',()=>set(!n.classList.contains('open')));
+  n.querySelectorAll('ul a').forEach(a=>a.addEventListener('click',()=>set(false)));
+})();
+
+/* MOTION */
+(()=>{
+  const R=document.documentElement; if(!R.classList.contains('js')) return;
+  if(!window.gsap||!window.ScrollTrigger){R.classList.remove('js');return}
+  gsap.registerPlugin(ScrollTrigger);
+  const E='power3.out', mobile=matchMedia('(max-width:760px)').matches;
+
+  // Hero: one orchestrated opening
+  const hero=document.querySelector('.hero');
+  gsap.timeline({defaults:{ease:E}})
+    .to('.h-img',{clipPath:'inset(0 0 0% 0)',duration:1.6,ease:'expo.inOut'})
+    .to('.h-img img',{scale:1,duration:2.1,clearProps:'transform'},0)
+    .fromTo('.h-logo',{autoAlpha:0,x:mobile?0:-40},{autoAlpha:1,x:0,duration:1.4},.5)
+    .to(hero.querySelectorAll('.ln>span'),{y:0,duration:1.2,stagger:.14},.8)
+    .to('.h-sup',{clipPath:'inset(0 0 0% 0)',duration:1.2,ease:'expo.out'},1.1)
+    .to('.h-sup img',{scale:1,duration:1.6,clearProps:'transform'},1.1);
+
+  // Masked image reveals, staggered when several enter together
+  ScrollTrigger.batch('.rv',{start:'top 88%',once:true,onEnter:els=>{
+    els=els.filter(e=>!hero.contains(e)); if(!els.length) return;
+    gsap.to(els,{clipPath:'inset(0 0 0% 0)',duration:1.4,ease:'expo.out',stagger:.16});
+    gsap.to(els.map(e=>e.querySelector('img')).filter(Boolean),{scale:1,duration:1.8,ease:E,stagger:.16,clearProps:'transform'});
+  }});
+
+  // Line-masked headings
+  gsap.utils.toArray('.ln').filter(l=>!hero.contains(l)).forEach(l=>{
+    gsap.to(l.firstElementChild,{y:0,duration:1.2,ease:E,scrollTrigger:{trigger:l,start:'top 90%',once:true}});
+  });
+
+  // Typography entering from different directions
+  gsap.utils.toArray('[data-from]').filter(el=>!hero.contains(el)||el.matches('.micro,.btn')).forEach(el=>{
+    const d=el.dataset.from, v=mobile?{y:30}:({left:{x:-60},right:{x:60},up:{y:40}}[d]||{y:30});
+    gsap.from(el,{...v,autoAlpha:0,duration:1.3,ease:E,scrollTrigger:{trigger:el,start:'top 92%',once:true}});
+  });
+
+  // Different drift speeds
+  gsap.utils.toArray('[data-speed]').forEach(el=>{
+    const s=parseFloat(el.dataset.speed)*(mobile?.5:1);
+    gsap.to(el,{y:()=>-s*140,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true,invalidateOnRefresh:true}});
+  });
+
+  // Gentle parallax inside large frames
+  gsap.utils.toArray('.par img').forEach(img=>{
+    gsap.fromTo(img,{yPercent:-4},{yPercent:4,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}});
+  });
+
+  // "thuis" settles slowly as the dark section passes
+  gsap.fromTo('.mo-3',{x:mobile?0:-40},{x:mobile?0:40,ease:'none',scrollTrigger:{trigger:'.moment',start:'top bottom',end:'bottom top',scrub:true}});
+
+  document.fonts&&document.fonts.ready.then(()=>ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
