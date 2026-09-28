@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/img/:path*",
+      "destination": "/lyving-site/img/:path*"
+    },
+    {
+      "source": "/",
+      "destination": "/lyving-site/index.html"
+    }
+  ]
+}
